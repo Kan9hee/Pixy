@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Pixy</title>
+
+    <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/jumbotron/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      video.background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .page-filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+      }
+
+      .bg-body-tertiary {
+        background-color: transparent;
+      }
+
+      .text-bg-dark {
+        background-color: #343a40 !important; /* dark background */
+      }
+
+      .custom-transparent-bg {
+        background-color: transparent !important;
+      }
+
+      main {
+        width: 100%;
+      }
+
+      #mainContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    </style>
+
+</head>
+
+<body>
+<div class="position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-primary py-2 d-flex align-items-center" id="login-button" type="button" onclick="moveLogInPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+            <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+        </svg>
+    </button>
+</div>
+<main>
+    <video class="background-video" autoplay muted loop>
+        <source src="/img/main-page-video.mp4" type="video/mp4">
+    </video>
+    <div class="page-filter"></div>
+    <div class="container py-4" id="mainContainer">
+        <div class="mb-4 text-bg-dark custom-transparent-bg rounded-3">
+            <div class="container-fluid py-3">
+                <h1 class="display-5 pb-5 fw-bold" style="font-size: 200px;">Pixy</h1>
+                <p class="col-md-8 fs-4">
+                    LSTM 기반 영어 회화 피드백 서비스
+                </p>
+            </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-bg-dark rounded-3" style="background-image:url('/img/freestyle.png'); background-size: cover; background-position: center;">
+                    <h2 class="fw-bold">프리스타일</h2>
+                    <p>프리스타일 모드에서는 제한 없이 서비스를 체험할 수 있습니다.<br>자유롭게 말하고, 실시간으로 피드백을 받아보세요.</p>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <button class="btn btn-primary" type="button" onclick="startFreeStyle()">시작하기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-bg-dark rounded-3" style="background-image:url('/img/test.png'); background-size: cover; background-position: center;">
+                    <h2 class="fw-bold">모의테스트</h2>
+                    <p>모의테스트 모드에서는 설정 난이도에 따른 질문을 받게 됩니다.<br>오픽 등의 어학시험에 대비해 보세요.</p>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="dropdown">
+                            <button id="difficulty-button" class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                난이도
+                            </button>
+                            <ul class="dropdown-menu" id="difficulty-menu">
+                                <li><a class="dropdown-item" href="#" data-difficulty="3">3</a></li>
+                                <li><a class="dropdown-item" href="#" data-difficulty="4">4</a></li>
+                                <li><a class="dropdown-item" href="#" data-difficulty="5">5</a></li>
+                                <li><a class="dropdown-item" href="#" data-difficulty="6">6</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary" type="button" onclick="startTest()">시작하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/js/main.js" defer></script>
+</body>
+
+</html>

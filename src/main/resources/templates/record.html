@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Pixy - Record Page</title>
+    <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/jumbotron/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="theme-color" content="#712cf9">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img.background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      main {
+        width: 100%;
+      }
+
+      .video-filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+      }
+
+      .container {
+        min-height: calc(40vh - 40px); /* 100% height minus 40px (top and bottom padding) */
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .p-5.mb-4.bg-body-tertiary.rounded-3 {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #progress-bar-container {
+          width: 100%;
+          display: flex;
+          justify-content: start;
+      }
+
+      #progress-bar {
+          transition: width 0.3s ease;
+      }
+    </style>
+</head>
+
+<body>
+    <main>
+        <img src="/img/record-page-bg.jpg" class="background">
+        <div class="video-filter"></div>
+        <div class="container py-4">
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <h1 class="display-5 fw-bold" id="page-status">페이지 오류</h1>
+                <div class="container-fluid py-4">
+                    <p class="fs-4" id="question">만약 이 글이 페이지에 출력되었을 경우, 서버와의 연결 오류로 인해 페이지 텍스트를 가져오지 못한 것입니다. 관리자에게 문의 바랍니다.</p>
+                </div>
+                <div id="recording-controls" style="display: flex; justify-content: center; gap: 10px;">
+                    <button id="recordButton" class="btn btn-success btn-lg" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+                            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"/>
+                            <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+                        </svg>
+                    </button>
+                    <button id="stopButton" class="btn btn-danger btn-lg" style="display: none;" type="button" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-square-fill" viewBox="0 0 16 16">
+                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="loading-section" style="display: none; flex-direction: column; align-items: center;">
+                    <p class="fs-4" id="status-text">로딩 텍스트</p>
+                    <div id="progress-bar-container" class="progress" style="width: 100%; display: flex; justify-content: start;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" style="width: 0%;" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div id="result-section" class="container-fluid" style="display: none;">
+                    <div>
+                        <h2 class="fw-bold">초기 결과</h2>
+                        <p id="beforeText" class="fs-4">초기 결과물을 불러오는 중...</p>
+                        <h2 class="fw-bold pt-4">최종 결과</h2>
+                        <p id="afterText" class="fs-4">최종 결과물을 불러오는 중...</p>
+                    </div>
+                </div>
+                <div id="return-main" class="py-5" style="display: flex; justify-content: center;">
+                    <button class="btn btn-secondary btn-lg" type="button" onclick="goToMain()">메인 페이지로</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <script src="/js/recorder.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
