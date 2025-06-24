@@ -20,9 +20,13 @@ LSTM 기반 영어 회화 피드백 서비스
 ## 주요 기능
 
 ### 음성 녹음 및 분석
-|Screen #1|Screen #2|
-|:---:|:---:|
-|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_websocketSequence.png" width="600"/>|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_loading.png" width="600"/>|
+|Screen #1|
+|:---:|
+|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_websocketSequence.png" width="800"/>|
+
+|Screen #2|
+|:---:|
+|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_loading.png" width="800"/>|
 - 사용자와 서버간 UUID 기반 웹소켓 통신
 - 녹음된 음성 데이터를 분석하여 텍스트로 변환
 - 음성 데이터의 정보를 추출하고 JSON 형식으로 파싱
@@ -32,7 +36,7 @@ LSTM 기반 영어 회화 피드백 서비스
 ### 텍스트화된 답변 피드백
 |Screen #3|
 |:---:|
-|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_result.png" width="600"/>|
+|<img src="https://github.com/Kan9hee/Pixy/blob/main/Pixy_result.png" width="800"/>|
 - 문장의 흐름이 끊기는 음성 공백이 발생한 문장 위치에 [needfiller] 태그 삽입
 - 문장 텍스트를 분석하여 [needfiller] 태그 위치에 필러 삽입
 - 초기 인식 텍스트와 피드백이 완료된 텍스트를 사용자에게 전송
